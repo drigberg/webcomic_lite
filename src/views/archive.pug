@@ -4,7 +4,7 @@ div(class="content")
         a(href="/")
             button(class="nav-button btn btn-lg btn-primary") home
     div(id="archive")
-        each item, index in data.sortedComics
+        each item, index in data.sortedComics.reverse()
             div(class="tile")
-                a(href="/?=" + index)
+                a(href="/?=" + ((data.sortedComics.length - 1) - index))
                     p #{item.title} - #{item.date}

@@ -15,6 +15,10 @@ const port = process.env.PORT || 5000;
 const assetsPath = path.join(__dirname, '/public/assets/comics');
 const metadataPath = path.join(assetsPath, '/metadata.json');
 
+const metadata = JSON.parse(fs.readFileSync(metadataPath));
+const sortedComics = metadata.comics.sort(
+    (obj1, obj2) => new Date(obj1.date) - new Date(obj2.date));
+
 /**
  * Middleware
  */
@@ -27,33 +31,19 @@ app.set('view engine', 'pug');
  * Routes
  */
 
-function getMetadata() {
-    const metadataString = fs.readFileSync(metadataPath);
-    const data = JSON.parse(metadataString);
-    return data;
-}
-
-function getSortedComicsFromMetadata(metadata) {
-    const sorted = metadata.comics.sort(
-        (obj1, obj2) => new Date(obj1.date) - new Date(obj2.date));
-    return sorted;
-}
-
 app.get('/', function (req, res) {
-    const metadata = getMetadata();
-    const sorted = getSortedComicsFromMetadata(metadata);
-    const latest = sorted[sorted.length - 1];
+    const latest = sortedComics[sortedComics.length - 1];
     let comicData = latest;
-    let index = sorted.length - 1;
+    let index = sortedComics.length - 1;
     if (req.query.comic !== undefined) {
         const requestedIndex = parseInt(req.query.comic);
-        if (requestedIndex >= 0 && requestedIndex < sorted.length) {
-            comicData = sorted[requestedIndex];
+        if (requestedIndex >= 0 && requestedIndex < sortedComics.length) {
+            comicData = sortedComics[requestedIndex];
             index = requestedIndex;
         }
     }
     const previousIndex = index > 0 ? index - 1 : 0;
-    const nextIndex = index < sorted.length - 1 ? index + 1 : sorted.length - 1;
+    const nextIndex = index < sortedComics.length - 1 ? index + 1 : sortedComics.length - 1;
     res.render('index', {
         data: {
             siteTitle: metadata.siteTitle,
@@ -65,12 +55,10 @@ app.get('/', function (req, res) {
 });
 
 app.get('/archive', function (req, res) {
-    const metadata = getMetadata();
-    const sorted = getSortedComicsFromMetadata(metadata);
     res.render('archive', {
         data: {
             siteTitle: metadata.siteTitle,
-            sortedComics: sorted
+            sortedComics: sortedComics
         }
     });
 });
