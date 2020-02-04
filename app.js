@@ -33,33 +33,43 @@ function getMetadata() {
     return data;
 }
 
-app.get('/', function (req, res) {
+function getSortedMetadata() {
     const metadata = getMetadata();
     const sorted = metadata.comics.sort(
         (obj1, obj2) => new Date(obj1.date) - new Date(obj2.date));
+    return sorted;
+}
+
+app.get('/', function (req, res) {
+    const sorted = getSortedMetadata();
     const latest = sorted[sorted.length - 1];
     let comicData = latest;
     let index = sorted.length - 1;
-    if (req.query.index !== undefined) {
-        const requestedIndex = parseInt(req.query.index);
+    if (req.query.comic !== undefined) {
+        const requestedIndex = parseInt(req.query.comic);
         if (requestedIndex >= 0 && requestedIndex < sorted.length) {
             comicData = sorted[requestedIndex];
             index = requestedIndex;
         }
     }
-    const previousIndex = index > 0 ? index - 1 : null;
-    const nextIndex = index < sorted.length - 1 ? index + 1 : null;
+    const previousIndex = index > 0 ? index - 1 : 0;
+    const nextIndex = index < sorted.length - 1 ? index + 1 : sorted.length - 1;
     res.render('index', {
-        'data': {
-            'comicData': comicData,
-            'nextIndex': nextIndex,
-            'previousIndex': previousIndex,
+        data: {
+            comicData: comicData,
+            nextIndex: nextIndex,
+            previousIndex: previousIndex,
         }
     });
 });
 
 app.get('/archive', function (req, res) {
-    res.render('archive', {});
+    const sorted = getSortedMetadata();
+    res.render('archive', {
+        data: {
+            sortedComics: sorted
+        }
+    });
 });
 
 app.get('*', function (req, res) {

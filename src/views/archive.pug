@@ -1,0 +1,10 @@
+include head.pug
+div(class="content")
+    div(class="nav")
+        a(href="/")
+            button(class="nav-button btn btn-lg btn-primary") home
+    div(id="archive")
+        each item, index in data.sortedComics
+            div(class="tile")
+                a(href="/?=" + index)
+                    p #{item.title} - #{item.date}

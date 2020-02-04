@@ -1,0 +1,42 @@
+
+.header {
+    text-align: center;
+    vertical-align: center;
+    width: 100%;
+    padding-bottom: 20px;
+    height: 100px;
+    background-color: #ababab
+}
+
+body {
+    background-color: #cdcdcd
+}
+
+.icon {
+    float: left;
+    width: 100px;
+    height: 100px;
+}
+
+#title {
+    float: left;
+}
+
+.content {
+    text-align: center;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.nav {
+    padding-bottom: 10px;
+}
+
+.nav-button {
+    margin: 0 3px;
+}
+
+#comic-image {
+    max-width: 100%;
+    border: 3px solid black;
+}
