@@ -1,0 +1,25 @@
+{
+  "name": "webcomic_lite",
+  "version": "1.0.0",
+  "description": "A basic webcomic server for sharing funny stuff",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=production node app.js",
+    "start-dev": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drigberg/webcomic_lite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drigberg/webcomic_lite/issues"
+  },
+  "homepage": "https://github.com/drigberg/webcomic_lite#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^2.0.4"
+  }
+}
