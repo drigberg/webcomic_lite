@@ -1,5 +1,5 @@
 # Assets
-public/assets
+public/assets/*
 
 # Logs
 logs
