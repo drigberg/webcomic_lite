@@ -7,16 +7,13 @@ A basic webcomic server for sharing funny stuff, with navigation and an archive.
 2) Structure the metadata file as such:
 ```json
 {
+    "siteTitle": "Detective Daikon Radish Comics",
     "comics": [
         {
-            "title": "Precedence Day",
-            "hoverText": "Precedence Day",
-            "filename": "precedence_day.png",
-            "date": "2020-02-04",
-            "dimensions": {
-                "width": 480,
-                "height": 480
-            }
+            "title": "The First Cabbage",
+            "hoverText": "MY CABBAGES!",
+            "filename": "my_cabbages.png",
+            "date": "2037-01-12"
         }
     ]
 ```

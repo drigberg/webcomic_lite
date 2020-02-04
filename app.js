@@ -33,15 +33,15 @@ function getMetadata() {
     return data;
 }
 
-function getSortedMetadata() {
-    const metadata = getMetadata();
+function getSortedComicsFromMetadata(metadata) {
     const sorted = metadata.comics.sort(
         (obj1, obj2) => new Date(obj1.date) - new Date(obj2.date));
     return sorted;
 }
 
 app.get('/', function (req, res) {
-    const sorted = getSortedMetadata();
+    const metadata = getMetadata();
+    const sorted = getSortedComicsFromMetadata(metadata);
     const latest = sorted[sorted.length - 1];
     let comicData = latest;
     let index = sorted.length - 1;
@@ -56,6 +56,7 @@ app.get('/', function (req, res) {
     const nextIndex = index < sorted.length - 1 ? index + 1 : sorted.length - 1;
     res.render('index', {
         data: {
+            siteTitle: metadata.siteTitle,
             comicData: comicData,
             nextIndex: nextIndex,
             previousIndex: previousIndex,
@@ -64,9 +65,11 @@ app.get('/', function (req, res) {
 });
 
 app.get('/archive', function (req, res) {
-    const sorted = getSortedMetadata();
+    const metadata = getMetadata();
+    const sorted = getSortedComicsFromMetadata(metadata);
     res.render('archive', {
         data: {
+            siteTitle: metadata.siteTitle,
             sortedComics: sorted
         }
     });
