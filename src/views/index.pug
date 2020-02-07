@@ -1,16 +1,38 @@
 include head.pug
+-
+    var prevDisabled = data.currentIndex === 0
+    var prevDisabledClass = prevDisabled ? " disabled" : ""
+    var nextDisabled = data.currentIndex === data.lastIndex
+    var nextDisabledClass = nextDisabled ? " disabled" : ""
+
 div(class="content")
     div(class="nav")
-        a(href="/?comic=0")
-            button(class="nav-button btn btn-lg btn-primary") first
-        a(href="/?comic=" + data.previousIndex)
-            button(class="nav-button btn btn-lg btn-primary") prev
-        a(href="/?comic=" + data.nextIndex)
-            button(class="nav-button btn btn-lg btn-primary") next
-        a(href="/" + data.lastIndex)
-            button(class="nav-button btn btn-lg btn-primary") last
+        a(
+            href="/0"
+            class="nav-button btn btn-sm btn-primary" + prevDisabledClass
+            role="button"
+            aria-disabled=prevDisabled
+        ) first
+        a(
+            href="/" + data.previousIndex
+            class="nav-button btn btn-sm btn-primary" + prevDisabledClass
+            role="button"
+            aria-disabled=prevDisabled
+        ) prev
+        a(
+            href="/" + data.nextIndex
+            class="nav-button btn btn-sm btn-primary" + nextDisabledClass
+            role="button"
+            aria-disabled=nextDisabled
+        ) next
+        a(
+            href="/" + data.lastIndex
+            class="nav-button btn btn-sm btn-primary" + nextDisabledClass
+            role="button"
+            aria-disabled=nextDisabled
+        ) last
         a(href="/archive")
-            button(class="nav-button btn btn-lg btn-primary") archive
+            button(class="nav-button btn btn-sm btn-primary") archive
     div(id="comic-div")
         img(
             id="comic-image",

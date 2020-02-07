@@ -30,17 +30,18 @@ app.set('view engine', 'pug');
 /**
  * Routes
  */
-
 app.get('/', function (req, res) {
+    res.redirect(`/${sortedComics.length - 1}`);
+});
+
+app.get('/:comic/', function (req, res) {
     const latest = sortedComics[sortedComics.length - 1];
     let comicData = latest;
     let index = sortedComics.length - 1;
-    if (req.query.comic !== undefined) {
-        const requestedIndex = parseInt(req.query.comic);
-        if (requestedIndex >= 0 && requestedIndex < sortedComics.length) {
-            comicData = sortedComics[requestedIndex];
-            index = requestedIndex;
-        }
+    const requestedIndex = parseInt(req.params.comic);
+    if (requestedIndex >= 0 && requestedIndex < sortedComics.length) {
+        comicData = sortedComics[requestedIndex];
+        index = requestedIndex;
     }
     const previousIndex = index > 0 ? index - 1 : 0;
     const nextIndex = index < sortedComics.length - 1 ? index + 1 : sortedComics.length - 1;
@@ -48,8 +49,10 @@ app.get('/', function (req, res) {
         data: {
             siteTitle: metadata.siteTitle,
             comicData: comicData,
+            currentIndex: index,
             nextIndex: nextIndex,
             previousIndex: previousIndex,
+            lastIndex: sortedComics.length - 1
         }
     });
 });
