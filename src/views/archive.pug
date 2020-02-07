@@ -2,7 +2,7 @@ include head.pug
 div(class="content")
     div(class="nav")
         a(href="/")
-            button(class="nav-button btn btn-lg btn-primary") home
+            button(class="nav-button btn btn-sm btn-primary") home
     div(id="archive")
         each item, index in [...data.sortedComics].reverse()
             div(class="tile")
