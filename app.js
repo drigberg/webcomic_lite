@@ -31,10 +31,10 @@ app.set('view engine', 'pug');
  * Routes
  */
 app.get('/', function (req, res) {
-    res.redirect(`/${sortedComics.length - 1}`);
+    res.redirect(`/comic/${sortedComics.length - 1}`);
 });
 
-app.get('/:comic/', function (req, res) {
+app.get('/comic/:comic/', function (req, res) {
     const latest = sortedComics[sortedComics.length - 1];
     let comicData = latest;
     let index = sortedComics.length - 1;
