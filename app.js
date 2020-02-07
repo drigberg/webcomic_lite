@@ -75,6 +75,6 @@ app.listen(port, function (err) {
     if (err) {
         console.log('ERROR', err);
     } else {
-        console.log('Personal site server is running on port', port);
+        console.log('Webcomic server is running on port', port);
     }
 });
