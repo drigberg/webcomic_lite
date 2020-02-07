@@ -23,6 +23,12 @@
             "title": "Boxing",
             "hoverText": "Send in the corrugation",
             "filename": "boxing.png",
+            "date": "2020-02-06"
+        },
+        {
+            "title": "Circle of Life",
+            "hoverText": "My favorites are the milkweed flavored ones",
+            "filename": "circle_of_life.png",
             "date": "2020-02-07"
         }
     ]
