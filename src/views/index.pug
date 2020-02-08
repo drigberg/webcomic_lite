@@ -38,4 +38,5 @@ div(class="content")
             id="comic-image",
             src="/assets/comics/images/" + data.comicData.filename,
             title=data.comicData.hoverText)
-        p Date: #{data.comicData.date}
+        p(id="upload-date")
+            em Added on #{(new Date(data.comicData.date)).toDateString()}
