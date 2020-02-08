@@ -1,10 +1,9 @@
-include head.pug
+include header.pug
 -
     var prevDisabled = data.currentIndex === 0
     var prevDisabledClass = prevDisabled ? " disabled" : ""
     var nextDisabled = data.currentIndex === data.lastIndex
     var nextDisabledClass = nextDisabled ? " disabled" : ""
-
 div(class="content")
     div(class="nav")
         a(
@@ -40,3 +39,4 @@ div(class="content")
             title=data.comicData.hoverText)
         p(id="upload-date")
             em Added on #{(new Date(data.comicData.date)).toDateString()}
+include footer.pug

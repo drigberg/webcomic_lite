@@ -6,6 +6,16 @@
     background-color: #ababab
 }
 
+.footer {
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    background-color: #ababab;
+    /* border-top: 2px solid black; */
+}
+
+
 body {
     background-color: #cdcdcd
 }
@@ -29,7 +39,8 @@ body {
 .content {
     text-align: center;
     width: 90%;
-    margin: 10px auto;
+    margin: 0px auto;
+    padding: 20px;
 }
 
 .nav {
@@ -42,7 +53,6 @@ body {
 
 #comic-image {
     max-width: 100%;
-    border: 3px solid black;
 }
 
 @media only screen and (max-width : 648px) {

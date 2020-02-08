@@ -1,4 +1,4 @@
-include head.pug
+include header.pug
 div(class="content")
     div(class="nav")
         a(href="/")
@@ -8,3 +8,4 @@ div(class="content")
             div(class="tile")
                 a(href="/?comic=" + ((data.sortedComics.length - 1) - index))
                     p #{item.title} - #{item.date}
+include footer.pug
