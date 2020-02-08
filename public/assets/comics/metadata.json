@@ -2,33 +2,39 @@
     "comics": [
         {
             "title": "Precedence Day",
-            "hoverText": "Not to be confused with Precedents day, when we celebrate all the loud opinions we shared a long time ago and have to keep standing by to avoid looking foolish",
+            "hoverText": "Not to be confused with Precedents day, when we celebrate all the loud opinions we shared a long time ago and have to keep standing by to avoid looking foolish.",
             "filename": "precedence_day.png",
             "date": "2020-02-02"
         },
         {
             "title": "Disorient Express",
-            "hoverText": "Excuse me sir, are you the murder victim? ANSWER ME",
+            "hoverText": "Excuse me sir, are you the murder victim? ANSWER ME!",
             "filename": "disorient_express.png",
             "date": "2020-02-03"
         },
         {
             "title": "Good Old Fashioned Gambling",
-            "hoverText": "And put all my children on that angry-looking one with the glass eye",
+            "hoverText": "And put all my children on that angry-looking one with the glass eye!",
             "filename": "good_old_fashioned_gambling.png",
             "date": "2020-02-04"
         },
         {
             "title": "Boxing",
-            "hoverText": "Send in the corrugation",
+            "hoverText": "Send in the corrugation?",
             "filename": "boxing.png",
             "date": "2020-02-06"
         },
         {
             "title": "Circle of Life",
-            "hoverText": "My favorites are the milkweed flavored ones",
+            "hoverText": "My favorites are the milkweed flavored ones.",
             "filename": "circle_of_life.png",
             "date": "2020-02-07"
+        },
+        {
+            "title": "Can of Peas",
+            "hoverText": "Not many options if you don't have a can opener.",
+            "filename": "can_of_peas.png",
+            "date": "2020-02-08"
         }
     ]
 }
