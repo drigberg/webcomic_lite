@@ -47,6 +47,7 @@ app.get('/comic/:comic/', function (req, res) {
     const nextIndex = index < sortedComics.length - 1 ? index + 1 : sortedComics.length - 1;
     res.render('index', {
         data: {
+            siteDescription: metadata.siteDescription,
             siteTitle: metadata.siteTitle,
             comicData: comicData,
             currentIndex: index,
@@ -60,6 +61,7 @@ app.get('/comic/:comic/', function (req, res) {
 app.get('/archive', function (req, res) {
     res.render('archive', {
         data: {
+            siteDescription: metadata.siteDescription,
             siteTitle: metadata.siteTitle,
             sortedComics: sortedComics
         }
