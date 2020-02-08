@@ -19,6 +19,11 @@ const metadata = JSON.parse(fs.readFileSync(metadataPath));
 const sortedComics = metadata.comics.sort(
     (obj1, obj2) => new Date(obj1.date) - new Date(obj2.date));
 
+const headerData = {
+    siteSubtitle: metadata.siteSubtitle,
+    siteTitle: metadata.siteTitle,
+};
+
 /**
  * Middleware
  */
@@ -47,8 +52,7 @@ app.get('/comic/:comic/', function (req, res) {
     const nextIndex = index < sortedComics.length - 1 ? index + 1 : sortedComics.length - 1;
     res.render('index', {
         data: {
-            siteDescription: metadata.siteDescription,
-            siteTitle: metadata.siteTitle,
+            ...headerData,
             comicData: comicData,
             currentIndex: index,
             nextIndex: nextIndex,
@@ -61,8 +65,7 @@ app.get('/comic/:comic/', function (req, res) {
 app.get('/archive', function (req, res) {
     res.render('archive', {
         data: {
-            siteDescription: metadata.siteDescription,
-            siteTitle: metadata.siteTitle,
+            ...headerData,
             sortedComics: sortedComics
         }
     });
