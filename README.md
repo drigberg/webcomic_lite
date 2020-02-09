@@ -7,7 +7,6 @@ A basic webcomic server for sharing funny stuff, with navigation and an archive.
 2) Structure the metadata file as such:
 ```json
 {
-    "siteTitle": "Detective Daikon Radish Comics",
     "comics": [
         {
             "title": "The First Cabbage",
