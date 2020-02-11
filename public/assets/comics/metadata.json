@@ -35,6 +35,12 @@
             "hoverText": "Not many options if you don't have a can opener.",
             "filename": "can_of_peas.png",
             "date": "2020-02-08"
+        },
+        {
+            "title": "Ring of Invisibility",
+            "hoverText": "Sauron will be able to see me and hunt me down? Eh, fair trade.",
+            "filename": "ring_of_invisibility.png",
+            "date": "2020-02-11"
         }
     ]
 }
