@@ -41,6 +41,12 @@
             "hoverText": "Sauron will be able to see me and hunt me down? Eh, fair trade.",
             "filename": "ring_of_invisibility.png",
             "date": "2020-02-11"
+        },
+        {
+            "title": "Ivory",
+            "hoverText": "I can hardly poach a single egg, let alone a whole elephant",
+            "filename": "ivory.png",
+            "date": "2020-03-03"
         }
     ]
 }
